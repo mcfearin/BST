@@ -32,22 +32,19 @@ int main() {
         cout << "inserting ... " << s << endl;
         bst.insertItem(s);
         inFile >> s;
-
     }
+    cout << "postorder traversal is " << endl;
+    print(bst.postOrderTraversal());
+    cout << endl;
 
     cout << "preorder traversal is " << endl;
     print(bst.preOrderTraversal());
-    cout << endl;
-
-    cout << "postorder traversal is " << endl;
-    print(bst.postOrderTraversal());
     cout << endl;
 
     cout << "inorder traversal is " << endl;
     print(bst.inOrderTraversal());
     cout << endl;
 
-/*
     cout << "Remove items " << endl;
     cout << "number of nodes in tree before delete is " << bst.countNodes() << endl;
     s = "tree";
@@ -56,6 +53,8 @@ int main() {
     cout << endl;
     cout << "number of nodes in tree after delete is " << bst.countNodes() << endl;
     cout << endl;
-*/
+    bst.makeEmpty();
+    cout << "number of nodes in tree after empty is " << bst.countNodes() << endl;
+    cout << endl;
 }
 
