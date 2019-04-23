@@ -226,7 +226,7 @@ void BST_312 <ItemType>::getPredecessor(TreeNode* t, ItemType& data)
 template<class ItemType>
 void BST_312 <ItemType>::deleteItem(TreeNode*& t, const ItemType& newItem)
 {
-        //result.push_back(t->data);
+
     if (t == NULL)
         return;
     else if (newItem < t->data)
@@ -248,7 +248,9 @@ void BST_312 <ItemType>::deleteItem(const ItemType& newItem)
 template<class ItemType>
 void BST_312 <ItemType>::makeEmpty(TreeNode*& t)
 {
-    //YOUR CODE GOES HERE
+    while(t != NULL){
+        deleteItem(t->data);
+    }
 }
 
 template<class ItemType>
@@ -410,12 +412,11 @@ bool BST_312 <ItemType>::isItemInTree(const ItemType& item)
     //YOUR CODE GOES HERE
     bool inTree = false;
     TreeNode** treeNodePtr = &root;
-    while((*treeNodePtr) != NULL){
+    while((*treeNodePtr) != NULL && !inTree){
         if(((*treeNodePtr)->data) == item){
             inTree = true;
-            treeNodePtr = NULL;
         }
-        else if(item < (*treeNodePtr)){
+        else if(item < ((*treeNodePtr)->data)){
             treeNodePtr = &((*treeNodePtr)->left);
         }
         else {
